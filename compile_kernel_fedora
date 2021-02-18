@@ -1,0 +1,4 @@
+# baixe o kernel, salve na pasta home do usuario, descompacte, entre na pasta descompactada e aplique os comandos abaixo
+sudo dnf install -y  fedpkg fedora-packager rpmdevtools ncurses-devel pesign grubby flex bison openssl-devel dwarves
+cp /boot/config-$(uname -r) .config
+make -j$(nproc) INSTALL_MOD_STRIP=1 binrpm-pkg
