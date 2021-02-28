@@ -10,7 +10,7 @@ patch -p1 < ../kernel_gcc_patch/enable_additional_cpu_optimizations_for_gcc_v10.
 
 # INSTALA DEPENDENCIAS
 apt-get build-dep linux linux-image-$(uname -r)
-apt install build-essential bc kmod cpio flex liblz4-tool lz4 libncurses-dev libelf-dev libssl-dev qtbase5-dev dkms git
+apt install build-essential bc kmod cpio flex liblz4-tool lz4 libncurses-dev libelf-dev libssl-dev qtbase5-dev dkms git gawk bison openssl libudev-dev libpci-dev libiberty-dev autoconf
 apt-get --no-install-recommends install kernel-package
 
 # CORRIGIR PROBLEMAS DO KERNEL-PACKAGE
