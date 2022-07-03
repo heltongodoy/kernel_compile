@@ -31,3 +31,5 @@ make oldconfig
 
 # INICIANDO A COMPILACAO
 INSTALL_MOD_STRIP=1 CONCURRENCY_LEVEL=5 fakeroot make-kpkg --initrd --append-to-version=-heltongodoy --revision=1.0 kernel_image kernel_headers
+# OUTRA OPCAO PARA COMPILAR NO UBUNTU
+nice make -j`nproc` bindeb-pkg
