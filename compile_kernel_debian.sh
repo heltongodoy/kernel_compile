@@ -29,7 +29,20 @@ cp /boot/config-$(uname -r) .config
 echo "ULTIMOS AJUSTES DE COMPILAR, ESCOLHA O MODELO DO PROCESSADOR"
 make oldconfig
 
+# PROCESSADOR INTEL i5 NOTEBOOK ACER
+export KCFLAGS=' -march=ivybridge -mtune=ivybridge'
+export KCPPFLAGS=' -march=ivybridge -mtune=ivybridge'
+
+# PROCESSADOR INTEL i5 NOTEBOOK LENOVO
+export KCFLAGS=' -march=cooperlake -mtune=cooperlake'
+export KCPPFLAGS=' -march=cooperlake -mtune=cooperlake'
+
 # INICIANDO A COMPILACAO
+# PRIMEIRA OPCAO 
 INSTALL_MOD_STRIP=1 CONCURRENCY_LEVEL=5 fakeroot make-kpkg --initrd --append-to-version=-heltongodoy --revision=1.0 kernel_image kernel_headers
-# OUTRA OPCAO PARA COMPILAR NO UBUNTU
+
+# SEGUNDA OPCAO PARA COMPILAR NO UBUNTU
 nice make -j`nproc` bindeb-pkg
+
+# TERCEIRA OPCAO PARA COMPILAR NO DEBIAN
+time make -j`nproc` deb-pkg
